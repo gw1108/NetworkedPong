@@ -1,7 +1,7 @@
-﻿Build started 3/17/2014 4:04:17 PM.
-     1>Project "C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\PongLibrary\PongLibrary.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/3/2014 6:19:56 PM.
+     1>Project "C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\PongLibrary\PongLibrary.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\PongLibrary\..\Middleware\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D SFML_STATIC /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp Calculator.cpp GameData.cpp HealthPack.cpp Paddle.cpp PaddleUpdate.cpp TimeSync.cpp
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\PongLibrary\..\Middleware\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D SFML_STATIC /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp Calculator.cpp GameData.cpp HealthPack.cpp Paddle.cpp PaddleUpdate.cpp TimeSync.cpp
          TimeSync.cpp
          PaddleUpdate.cpp
          Paddle.cpp
@@ -11,7 +11,7 @@
          Ball.cpp
          Generating Code...
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\Debug\PongLibrary.lib" "sfml-graphics-s-d.lib" "sfml-network-s-d.lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" "sfml-window-s-d.lib" /LIBPATH:"C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\PongLibrary\..\Middleware\lib" /NOLOGO Debug\Ball.obj
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\Debug\PongLibrary.lib" "sfml-graphics-s-d.lib" "sfml-network-s-d.lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" "sfml-window-s-d.lib" /LIBPATH:"C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\PongLibrary\..\Middleware\lib" /NOLOGO Debug\Ball.obj
          Debug\Calculator.obj
          Debug\GameData.obj
          Debug\HealthPack.obj
@@ -28,9 +28,9 @@
      1>sfml-window-s-d.lib(WINMM.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
      1>sfml-window-s-d.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in sfml-network-s-d.lib(WS2_32.dll); second definition ignored
      1>sfml-window-s-d.lib(OPENGL32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-         PongLibrary.vcxproj -> C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\Debug\PongLibrary.lib
-     1>Done Building Project "C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\PongLibrary\PongLibrary.vcxproj" (Build target(s)).
+         PongLibrary.vcxproj -> C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\Debug\PongLibrary.lib
+     1>Done Building Project "C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\PongLibrary\PongLibrary.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.36
+Time Elapsed 00:00:04.73

@@ -1,0 +1,7 @@
+Debug
+Release
+Thumbs.db
+*.class
+bin Bin
+obj Obj
+*.csproj.user *.user

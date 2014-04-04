@@ -1,30 +1,9 @@
-﻿Build started 3/17/2014 4:17:41 PM.
-     1>Project "C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\PongLibrary\PongLibrary.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\PongLibrary\..\Middleware\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D SFML_STATIC /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp Calculator.cpp GameData.cpp HealthPack.cpp Paddle.cpp PaddleUpdate.cpp TimeSync.cpp
-         Ball.cpp
-         Calculator.cpp
-         GameData.cpp
-         HealthPack.cpp
-         Paddle.cpp
-         PaddleUpdate.cpp
-         TimeSync.cpp
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\Release\PongLibrary.lib" "sfml-graphics-s.lib" "sfml-network-s.lib" "sfml-system-s.lib" "sfml-audio-s.lib" "sfml-window-s.lib" /LIBPATH:"C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\PongLibrary\..\Middleware\lib" /NOLOGO /LTCG Release\Ball.obj
-         Release\Calculator.obj
-         Release\GameData.obj
-         Release\HealthPack.obj
-         Release\Paddle.obj
-         Release\PaddleUpdate.obj
-         Release\TimeSync.obj
-     1>sfml-audio-s.lib(libsndfile-1.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in sfml-network-s.lib(WS2_32.dll); second definition ignored
-     1>sfml-audio-s.lib(OpenAL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in sfml-network-s.lib(WS2_32.dll); second definition ignored
-     1>sfml-window-s.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in sfml-network-s.lib(WS2_32.dll); second definition ignored
-     1>sfml-window-s.lib(WINMM.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in sfml-network-s.lib(WS2_32.dll); second definition ignored
-     1>sfml-window-s.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in sfml-network-s.lib(WS2_32.dll); second definition ignored
-         PongLibrary.vcxproj -> C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\Release\PongLibrary.lib
-     1>Done Building Project "C:\Users\Travis\Documents\Visual Studio 2012\Projects\PongSolution\PongLibrary\PongLibrary.vcxproj" (Build target(s)).
+﻿Build started 4/3/2014 2:38:11 PM.
+     1>Project "C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\PongLibrary\PongLibrary.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         PongLibrary.vcxproj -> C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\Release\PongLibrary.lib
+     1>Done Building Project "C:\Users\Player1\Desktop\stuff\Jay's Realm\NetworkedPong\PongLibrary\PongLibrary.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.67
+Time Elapsed 00:00:00.14

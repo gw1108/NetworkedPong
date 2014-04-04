@@ -25,6 +25,7 @@ const std::string PONG_SERVER_LOCAL_HOST = "127.0.0.1";
 
 // Function Prototypes
 bool CheckIP(std::string &ipString);
+unsigned GetNumberOfDigits (unsigned i);
 
 int main(int argc, char* argv[])
 {
@@ -95,151 +96,57 @@ int main(int argc, char* argv[])
 bool CheckIP(std::string &ipString)
 {
 	char tempIP[256];
-	char nextChar;
-	int nextInt;
-
-	int firstNum = 0;
-	int secondNum = 0;
-	int thirdNum = 0;
-	int fourthNum = 0;
+	std::string delimiter = ".";
 
 	fgets(tempIP, 256, stdin);	// Get the next characters off input stream
 
-	for (int index = 0; index < 15; index++)
-	{
-		if ((index % 4) == 0) // First Number In IP Address Section
-		{
-			nextChar = tempIP[index];
-
-			// Check for LH command
-			if((nextChar == 'l') || (nextChar == 'L'))
-			{
-				nextChar = tempIP[index + 1];
-
-				if((nextChar == 'h') || (nextChar == 'H'))
-				{
-					std::cout << "Local Host Specified\n"; 
-					ipString = PONG_SERVER_LOCAL_HOST;
-					return true;
-				}
-				else
-				{
-					// IP not Valid
-					std::cout << "IP Format Error.\n"; 
-					return false;
-				}
-			}
-
-
-
-			nextInt = nextChar - '0';	// Get integer Value
-
-			if ((nextInt >= 0) && (nextInt <= 2))	// Must Be between 0 and 2
-			{
-				if (index == 0)
-				{
-					firstNum += (100 * nextInt);
-				}
-				else if (index == 4)
-				{
-					secondNum += (100 * nextInt);
-				}
-				else if (index == 8)
-				{
-					thirdNum += (100 * nextInt);
-				}
-				else if (index == 12)
-				{
-					fourthNum += (100 * nextInt);
-				}
-			}
-			else
-			{
-				std::cout << "IP-Address Format Error at index: " << index << " Value Entered: " << nextChar << std::endl;
-				return false;
-			}
-		}
-		else if ((index % 4) == 1)	// Second Number In IP Address Section
-		{
-			nextChar = tempIP[index];
-			nextInt = nextChar - '0';	// Get integer Value
+	std::string command = std::string(tempIP);
+	//remove \n
+	command.pop_back();
 	
-			if ((nextInt >= 0) && (nextInt <= 9))	// Must Be between 0 and 9
-			{
-				if (index == 1)
-				{
-					firstNum += (10 * nextInt);
-				}
-				else if (index == 5)
-				{
-					secondNum += (10 * nextInt);
-				}
-				else if (index == 9)
-				{
-					thirdNum += (10 * nextInt);
-				}
-				else if (index == 13)
-				{
-					fourthNum += (10 * nextInt);
-				}
-			}
-			else
-			{
-				std::cout << "IP-Address Format Error at index: " << index << " Value Entered: " << nextChar << std::endl;
-				return false;
-			}
-		}
-		else if ((index % 4) == 2) // Third Number In IP Address Section
-		{
-			nextChar = tempIP[index];
-			nextInt = nextChar - '0';	// Get integer Value
-
-			if ((nextInt >= 0) && (nextInt <= 9))	// Must Be between 0 and 9
-			{
-				if (index == 2)
-				{
-					firstNum += (1 * nextInt);
-				}
-				else if (index == 6)
-				{
-					secondNum += (1 * nextInt);
-				}
-				else if (index == 10)
-				{
-					thirdNum += (1 * nextInt);
-				}
-				else if (index == 14)
-				{
-					fourthNum += (1 * nextInt);
-
-					std::cout << "IP is Valid\nFirst: " << firstNum << " Second: " << secondNum << " Third: "
-						<< thirdNum << " Fourth: " << fourthNum << std::endl;
-
-					// Assign IP
-					std::stringstream stream;
-					stream << firstNum << '.' << secondNum << '.' << thirdNum << '.' << fourthNum;
-					ipString = stream.str();
-					std::cout << ipString << std::endl;
-					return true;
-				}
-			}
-			else
-			{
-				std::cout << "IP-Address Format Error at index: " << index << " Value Entered: " << nextChar << std::endl;
-				return false;
-			}
-		}
-		else if ((index == 3) || (index == 7) || (index == 11)) // Dot Seperator
-		{
-			nextChar = tempIP[index];
-
-			if (nextChar != '.')
-			{
-				std::cout << "Error at index: " << index << " Expected: '.' Found: " << nextChar << std::endl;
-				return false;
-			}
-		}
+	if(_stricmp(command.c_str(), "LH") == 0)
+	{
+		std::cout << "Local Host Specified\n";
+		ipString = PONG_SERVER_LOCAL_HOST;
+		return true;
 	}
 
-	return false;
+	size_t pos;
+	int value;
+	while(command.length() != 0){
+		if((pos = command.find(delimiter)) == std::string::npos)
+		{
+			pos = command.length();
+		}
+		//check if s.substr(0,pos); is a int
+		value = atoi(command.substr(0,pos).c_str());
+		if(GetNumberOfDigits(value) > 3)
+		{
+			std::cout << "Error Parsing : 4 or more numbers detected between '.'";
+			return false;
+		}
+		else if(GetNumberOfDigits(value) < 3)
+		{
+			//append 0s
+			int zeroPad = 3 - GetNumberOfDigits(value);
+			for(int i = 0; i < zeroPad; i++)
+			{
+				ipString.append("0");
+			}
+		}
+		ipString.append(std::to_string(value));
+		if(pos != command.length())
+		{
+			ipString.append(".");
+		}
+		command.erase(0, pos + delimiter.length());
+	}
+
+	std::cout << "IP is Valid : " << ipString << std::endl;
+	return true;
+}
+
+unsigned GetNumberOfDigits (unsigned i)
+{
+    return i > 0 ? (int) log10 ((double) i) + 1 : 1;
 }

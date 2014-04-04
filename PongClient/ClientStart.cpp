@@ -103,6 +103,12 @@ bool CheckIP(std::string &ipString)
 	std::string command = std::string(tempIP);
 	//remove \n
 	command.pop_back();
+	//check if it's now empty
+	if(command.empty())
+	{
+		std::cout << "Error Parsing : empty string detected";
+		return false;
+	}
 	
 	if(_stricmp(command.c_str(), "LH") == 0)
 	{
@@ -111,9 +117,17 @@ bool CheckIP(std::string &ipString)
 		return true;
 	}
 
+	//check if everything is a number or the delimeter
+	if(command.find_first_not_of("0123456789"+delimiter) != std::string::npos)
+	{
+		std::cout << "Error Parsing : invalid character " + command.find_first_not_of("0123456789"+delimiter);
+		return false;
+	}
+
 	size_t pos;
 	int value;
-	while(command.length() != 0){
+	int numberOfDelimeters = 0;
+	while(command.length() != 0 && numberOfDelimeters < 4){
 		if((pos = command.find(delimiter)) == std::string::npos)
 		{
 			pos = command.length();
@@ -125,21 +139,18 @@ bool CheckIP(std::string &ipString)
 			std::cout << "Error Parsing : 4 or more numbers detected between '.'";
 			return false;
 		}
-		else if(GetNumberOfDigits(value) < 3)
-		{
-			//append 0s
-			int zeroPad = 3 - GetNumberOfDigits(value);
-			for(int i = 0; i < zeroPad; i++)
-			{
-				ipString.append("0");
-			}
-		}
 		ipString.append(std::to_string(value));
 		if(pos != command.length())
 		{
 			ipString.append(".");
 		}
 		command.erase(0, pos + delimiter.length());
+		numberOfDelimeters++;
+	}
+	if(numberOfDelimeters > 3)
+	{
+		std::cout << "Error Parsing : 4 or more '.' detected";
+		return false;
 	}
 
 	std::cout << "IP is Valid : " << ipString << std::endl;
